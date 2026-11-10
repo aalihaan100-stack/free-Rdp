@@ -1,0 +1,17 @@
+
+name: Free Windows Machine
+
+on:
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check Windows version
+        run: |
+          systeminfo
+          Get-ComputerInfo | Select-Object WindowsProductName
+        shell: powershell
